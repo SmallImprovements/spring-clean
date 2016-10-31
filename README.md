@@ -1,6 +1,6 @@
 #Hello
 
-To get started, simply copy src/Config.hs.template to src/Config.hs and specify at least srcPath. Continue by running "stack build" followed by "stack exec spring-clean" in your terminal while in the project's folder.
+To get started, simply copy src/Config.hs.template to src/Config.hs and specify at least srcPath. Continue by running "stack build" followed by "stack exec spring-clean" in your terminal while in the project's folder. If you are not familiar with Stack, you can read about it here https://docs.haskellstack.org/en/stable/README/
 
 # What is this?
 This piece of code is developed for a specific project to identify unused java-files. However, a lot of the parts are generic and specific for Spring MVC rather than our specific project. So I extracted the configuration required for making to work with our project into a separate file in order to make it easy for anyone else to play around with the code and use it. I managed to get rid for 1593 LOC spread across 47 files. Not much considering how large codebase I was working with, but I guess a larger number would not have been so nice to see either.
