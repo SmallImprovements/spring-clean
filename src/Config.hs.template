@@ -1,0 +1,41 @@
+module Config (
+  getAdditionalClasses,
+  blacklistedFiles,
+  blacklistedClassSuffixes,
+  getBlacklistedAnnotations,
+  srcPath
+) where
+
+import Data.List (elemIndices)
+import Text.Regex.PCRE
+
+-- Provide classes that are not expected to be found here but that are used.
+-- Could be classes that are only reference via strings for example.
+getAdditionalClasses :: IO [String]
+getAdditionalClasses = return []
+
+-- Ignore files with a certain file name
+blacklistedFiles :: [String]
+blacklistedFiles = ["package-info.java"]
+
+-- Classes ending with a specific suffix can be problematic,
+-- this allows you to specify a blacklist.
+-- Eg. ["Rule"] will ignore for example DeleteAllRule.
+blacklistedClassSuffixes :: [String]
+blacklistedClassSuffixes = []
+
+-- Absolute path to the source folder to analyze
+srcPath :: String
+srcPath = ""
+
+-- Will ignore the whole file if a class or method
+-- contains an annotation. This is useful if you know
+-- that Spring calls these.
+getBlacklistedAnnotations :: [String]
+getBlacklistedAnnotations = ["RestController"
+                            ,"RequestMapping"
+                            ,"Configuration"
+                            ,"ControllerAdvice"
+                            ,"PostConstruct"
+                            ,"EnableGlobalMethodSecurity"
+                            ]
